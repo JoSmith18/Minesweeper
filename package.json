@@ -1,0 +1,22 @@
+{
+    "name": "JS-Template",
+    "version": "1.0.0",
+    "description": "Base Camp Coding Academy template for javascript projects",
+    "author": "Nate Clark",
+    "license": "MIT",
+    "dependencies": {
+        "bootstrap": "^3.3.7",
+        "jquery": "^3.2.1",
+        "ramda": "^0.25.0"
+    },
+    "devDependencies": {
+        "copy-webpack-plugin": "^4.1.1",
+        "jest": "^21.2.1",
+        "webpack": "^3.6.0"
+    },
+    "scripts": {
+        "build": "webpack",
+        "test": "jest --watch",
+        "clean": "rm -r dist/*"
+    }
+}
