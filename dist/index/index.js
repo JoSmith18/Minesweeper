@@ -4998,7 +4998,7 @@ function congrats() {
     $('#postgame')
         .hide()
         .html(
-            '<div class="jumbotron"><center><img src-"https://media.giphy.com/media/3oKIPwoeGErMmaI43S/giphy.gif"><br><h1>Good-Job</h1></center></div>'
+            '<div class="jumbotron"><center><img src="https://media.giphy.com/media/3oKIPwoeGErMmaI43S/giphy.gif"><br><h1>Good-Job</h1></center></div>'
         )
         .show(500);
     $('#board').hide(2000);
