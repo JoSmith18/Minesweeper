@@ -245,7 +245,9 @@ function isBomb(x, y) {
         }
         $('#postgame')
             .hide()
-            .html('<div class="jumbotron"><h1>u ded boom</h1></div>')
+            .html(
+                '<div class="jumbotron"><center><h1><img src=https://media.giphy.com/media/aYmOpersyRXCE/giphy.gif></h1></center></div>'
+            )
             .show(500);
         $('#board').hide(2000);
         return true;
