@@ -3,7 +3,7 @@ const other = require('../../lib/other');
 const R = require('ramda');
 const WIDTH = 10;
 const HEIGHT = 10;
-const BOMBS = 20;
+const BOMBS = 15;
 const MINEFIELD = { grid: makeMineField(), moves: 0, flags: BOMBS };
 
 function makeMineField() {
@@ -81,15 +81,18 @@ function clump_from(x, y) {
                     for (var m = -1; m <= 1; m++) {
                         var a = Math.max(0, Math.min(i + n, HEIGHT - 1));
                         var b = Math.max(0, Math.min(j + m, WIDTH - 1));
-                        console.log(a + '' + b);
                         MINEFIELD.grid[a][b];
                         if (
                             !R.contains([a, b], history) &&
-                            MINEFIELD.grid[a][b].touch == 0
+                            MINEFIELD.grid[a][b].touch == 0 &&
+                            !MINEFIELD.grid[a][b].flagged
                         ) {
                             to_check.push([a, b]);
                         }
-                        if (!R.contains([a, b], clumps)) {
+                        if (
+                            !R.contains([a, b], clumps) &&
+                            !MINEFIELD.grid[a][b].flagged
+                        ) {
                             clumps.push([a, b]);
                         }
                     }
@@ -101,7 +104,10 @@ function clump_from(x, y) {
 }
 function setClick(x, y) {
     var clump = clump_from(x, y);
-    console.log(clump);
+    if (MINEFIELD.grid[x][y].flagged) {
+        MINEFIELD.grid[x][y].flagged = false;
+        MINEFIELD.flags++;
+    }
     clump.forEach(pair => (MINEFIELD.grid[pair[0]][pair[1]].clicked = true));
 
     draw();
