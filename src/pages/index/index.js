@@ -1,9 +1,9 @@
 const $ = require('jquery');
 const other = require('../../lib/other');
 const R = require('ramda');
-const WIDTH = 8;
-const HEIGHT = 8;
-const BOMBS = 10;
+const WIDTH = 10;
+const HEIGHT = 10;
+const BOMBS = 20;
 const MINEFIELD = { grid: makeMineField(), moves: 0, flags: BOMBS };
 
 function makeMineField() {
